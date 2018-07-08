@@ -139,6 +139,19 @@ namespace argos {
       CEntity* GetSelectedEntity();
 
       /**
+       * Get the entity with the given id in the arena.
+       * @param str_id The string containing the id. 
+       */
+      CEntity& GetEntity(std::string& str_id);
+
+      /**
+       * Add the ids of the root entities in the arena to the vector.
+       * Clears the vector.
+       * @param vec_entity_ids The vector in which the ids will be added. 
+       */
+      void GetRootEntityIds(std::vector<std::string>& vec_entity_ids);
+
+      /**
        * Selects the passed entity.
        * @param c_entity The entity to select.
        */

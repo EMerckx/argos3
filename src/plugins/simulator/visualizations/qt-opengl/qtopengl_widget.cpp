@@ -303,6 +303,29 @@ namespace argos {
    /****************************************/
    /****************************************/
 
+   CEntity& CQTOpenGLWidget::GetEntity(std::string& str_id)
+   {
+      return m_cSpace.GetEntity(str_id);
+   }
+
+   /****************************************/
+   /****************************************/
+
+   void CQTOpenGLWidget::GetRootEntityIds(std::vector<std::string>& vec_entity_ids)
+   {
+      /* Get the Root entities from the space */
+      CEntity::TVector tVector = m_cSpace.GetRootEntityVector();
+      /* Remove the current content of the given vector */
+      vec_entity_ids.clear();
+      /* Add each root entity id to the given vector */
+      for(size_t i = 0; i < tVector.size(); i++){
+         vec_entity_ids.push_back(tVector[i]->GetId());
+      }
+   }
+
+   /****************************************/
+   /****************************************/
+
    void CQTOpenGLWidget::SelectEntity(CEntity& c_entity) {
       /* Check whether an entity had previously been selected */
       if(m_sSelectionInfo.IsSelected) {
