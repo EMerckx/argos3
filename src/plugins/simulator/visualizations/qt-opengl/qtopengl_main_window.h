@@ -163,6 +163,13 @@ namespace argos {
       void AddEntity();
 
       /**
+       * Moves an entity in the arena to an other position.
+       * Shows a window to the user, with which he can specify the desired position
+       * and orientation.
+       */
+      void MoveEntity();
+
+      /**
        * Plays the experiment.
        * Internally sets a timer whose period corresponds to the
        * XML attribute 'ticks_per_second' in the .argos file.
@@ -239,6 +246,7 @@ namespace argos {
 
       /* Arena actions, toolbar and menu */
       QAction* m_pcAddEntityAction;
+      QAction* m_pcMoveEntityAction;
       QToolBar* m_pcArenaToolBar;
       QMenu* m_pcArenaMenu;
 

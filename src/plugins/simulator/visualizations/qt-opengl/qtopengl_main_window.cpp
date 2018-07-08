@@ -38,6 +38,7 @@
 #include <QSettings>
 
 #include <argos3/plugins/simulator/visualizations/qt-opengl/dialogs/qtopengl_add_entity_dialog.h>
+#include <argos3/plugins/simulator/visualizations/qt-opengl/dialogs/qtopengl_move_entity_dialog.h>
 
 namespace argos {
 
@@ -246,6 +247,7 @@ namespace argos {
 
    void CQTOpenGLMainWindow::CreateArenaActions() {
       // add icon: Icon made by http://www.flaticon.com/authors/icomoon from www.flaticon.com
+      // move icon: Designed by http://www.flaticon.com/authors/freepik from www.flaticon.com
 
       /* Add the add entity action */
       QIcon cAddIcon;
@@ -254,6 +256,14 @@ namespace argos {
       m_pcAddEntityAction->setShortcut(Qt::Key_I);
       m_pcAddEntityAction->setToolTip(tr("Add a new entity"));
       m_pcAddEntityAction->setStatusTip(tr("Add a new entity to the experiment"));
+
+      /* Add the move entity action */
+      QIcon cMoveIcon;
+      cMoveIcon.addPixmap(QPixmap(m_strIconDir + "/move-object.png"));
+      m_pcMoveEntityAction = new QAction(cMoveIcon, tr("&Move entity"), this);
+      m_pcMoveEntityAction->setShortcut(Qt::Key_M);
+      m_pcMoveEntityAction->setToolTip(tr("Move an entity"));
+      m_pcMoveEntityAction->setStatusTip(tr("Move an entity of the experiment"));
    }
 
    /****************************************/
@@ -378,6 +388,7 @@ namespace argos {
       m_pcArenaToolBar->setIconSize(QSize(32, 32));
       /* Add the actions to the toolbar */
       m_pcArenaToolBar->addAction(m_pcAddEntityAction);
+      m_pcArenaToolBar->addAction(m_pcMoveEntityAction);
       addToolBar(Qt::LeftToolBarArea, m_pcArenaToolBar);
    }
 
@@ -423,6 +434,7 @@ namespace argos {
       m_pcArenaMenu = menuBar()->addMenu(tr("&Arena"));
       /* Add the actions to the menu */
       m_pcArenaMenu->addAction(m_pcAddEntityAction);
+      m_pcArenaMenu->addAction(m_pcMoveEntityAction);
    }
 
    /****************************************/
@@ -581,6 +593,8 @@ namespace argos {
       /* Add entity button pressed */
       connect(m_pcAddEntityAction, SIGNAL(triggered()),
               this, SLOT(AddEntity()));
+      connect(m_pcAddEntityAction, SIGNAL(triggered()),
+              this, SLOT(MoveEntity()));
       /* Play button pressed */
       connect(m_pcPlayAction, SIGNAL(triggered()),
               this, SLOT(PlayExperiment()));
@@ -686,6 +700,14 @@ namespace argos {
       CQTOpenGLAddEntityDialog* cAddEntityDlg =
          new CQTOpenGLAddEntityDialog(this, m_pcOpenGLWidget);
       cAddEntityDlg->exec();
+   }
+
+   /****************************************/
+   /****************************************/
+
+   void CQTOpenGLMainWindow::MoveEntity() {
+      CQTOpenGLMoveEntityDialog *dlg = new CQTOpenGLMoveEntityDialog(this, m_pcOpenGLWidget);
+      dlg->exec();
    }
 
    /****************************************/
