@@ -593,7 +593,7 @@ namespace argos {
       /* Add entity button pressed */
       connect(m_pcAddEntityAction, SIGNAL(triggered()),
               this, SLOT(AddEntity()));
-      connect(m_pcAddEntityAction, SIGNAL(triggered()),
+      connect(m_pcMoveEntityAction, SIGNAL(triggered()),
               this, SLOT(MoveEntity()));
       /* Play button pressed */
       connect(m_pcPlayAction, SIGNAL(triggered()),
