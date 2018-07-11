@@ -15,10 +15,10 @@
 #include <QVBoxLayout>
 
 #include <argos3/core/simulator/entity/floor_entity.h>
-#include <argos3/plugins/robots/e-puck/simulator/epuck_entity.h>
-#include <argos3/plugins/robots/eye-bot/simulator/eyebot_entity.h>
-#include <argos3/plugins/robots/foot-bot/simulator/footbot_entity.h>
-#include <argos3/plugins/robots/spiri/simulator/spiri_entity.h>
+//#include <argos3/plugins/robots/e-puck/simulator/epuck_entity.h>
+//#include <argos3/plugins/robots/eye-bot/simulator/eyebot_entity.h>
+//#include <argos3/plugins/robots/foot-bot/simulator/footbot_entity.h>
+//#include <argos3/plugins/robots/spiri/simulator/spiri_entity.h>
 #include <argos3/plugins/simulator/entities/box_entity.h>
 #include <argos3/plugins/simulator/entities/cylinder_entity.h>
 #include <argos3/plugins/simulator/entities/light_entity.h>
@@ -196,23 +196,23 @@ namespace argos {
                                 cCylinderEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "e-puck") {
-                            CEPuckEntity& cEPuckEnt = *any_cast<CEPuckEntity*>(it->second);
-                            CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
-                                cEPuckEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
+                            //CEPuckEntity& cEPuckEnt = *any_cast<CEPuckEntity*>(it->second);
+                            //CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
+                            //    cEPuckEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "eye-bot") {
-                            CEyeBotEntity& cEyebotEnt = *any_cast<CEyeBotEntity*>(it->second);
-                            CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
-                                cEyebotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
+                            //CEyeBotEntity& cEyebotEnt = *any_cast<CEyeBotEntity*>(it->second);
+                            //CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
+                            //    cEyebotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "floor") {
                             m_pcErrorLabel->setText(QString("Moving a floor entity is not possible."));
                             bErrorOccured = true;
                         }
                         else if(strEntityType == "foot-bot") {
-                            CFootBotEntity& cFootbotEnt = *any_cast<CFootBotEntity*>(it->second);
-                            CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
-                                cFootbotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
+                            //CFootBotEntity& cFootbotEnt = *any_cast<CFootBotEntity*>(it->second);
+                            //CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
+                            //    cFootbotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "light") {
                             CLightEntity& cLightEnt = *any_cast<CLightEntity*>(it->second);
@@ -220,9 +220,9 @@ namespace argos {
                                 cLightEnt, cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "spiri") {
-                            CSpiriEntity& cSpiriEnt = *any_cast<CSpiriEntity*>(it->second);
-                            CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
-                                cSpiriEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
+                            //CSpiriEntity& cSpiriEnt = *any_cast<CSpiriEntity*>(it->second);
+                            //CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
+                            //    cSpiriEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else {
                             m_pcErrorLabel->setText(QString("This type of entity can not yet be moved."));
