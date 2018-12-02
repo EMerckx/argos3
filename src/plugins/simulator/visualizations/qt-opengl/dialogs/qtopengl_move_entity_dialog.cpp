@@ -17,7 +17,7 @@
 #include <argos3/core/simulator/entity/floor_entity.h>
 //#include <argos3/plugins/robots/e-puck/simulator/epuck_entity.h>
 //#include <argos3/plugins/robots/eye-bot/simulator/eyebot_entity.h>
-//#include <argos3/plugins/robots/foot-bot/simulator/footbot_entity.h>
+#include <argos3/plugins/robots/foot-bot/simulator/footbot_entity.h>
 //#include <argos3/plugins/robots/spiri/simulator/spiri_entity.h>
 #include <argos3/plugins/simulator/entities/box_entity.h>
 #include <argos3/plugins/simulator/entities/cylinder_entity.h>
@@ -210,9 +210,9 @@ namespace argos {
                             bErrorOccured = true;
                         }
                         else if(strEntityType == "foot-bot") {
-                            //CFootBotEntity& cFootbotEnt = *any_cast<CFootBotEntity*>(it->second);
-                            //CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
-                            //    cFootbotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
+                            CFootBotEntity& cFootbotEnt = *any_cast<CFootBotEntity*>(it->second);
+                            CSimulator::GetInstance().GetLoopFunctions().MoveEntity(
+                                cFootbotEnt.GetEmbodiedEntity(), cEntityPosition, cEntityOrientation);
                         }
                         else if(strEntityType == "light") {
                             CLightEntity& cLightEnt = *any_cast<CLightEntity*>(it->second);
